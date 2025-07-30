@@ -84,7 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         fetch(this.action, {
             method: 'POST',
-            body: formData
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            },
+            body: formData,
+            credentials: 'same-origin'  // Add this line
         })
         .then(response => {
             console.log('Response received:', {
