@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compress Interface</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}" />
+  </head>
+  <body>
+    <main class="compress-interface">
+      <div class="container">
+        <h1 class="title">Compress</h1>
+
+        <form
+          method="POST"
+          action="{% url 'result' %}"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+          <section class="drop-zone" id="dropZone">
+            <input
+              type="file"
+              id="fileInput"
+              name="images"
+              accept="image/*"
+              multiple
+              class="file-input"
+              aria-hidden="true"
+            />
+            <p class="drop-zone-text">
+              Drag and drop your picture or <br />
+              click to browse
+            </p>
+          </section>
+
+          <div class="controls-section">
+            <div class="controls-grid">
+              <div class="quality-selector">
+                <div class="quality-options">
+                  <fieldset class="quality-fieldset">
+                    <legend class="sr-only">Compression Quality</legend>
+                    <div class="quality-labels">
+                      <label class="quality-label">
+                        <span>Very Low</span>
+                        <input
+                          name="qualitySelector"
+                          value="Very Low"
+                          type="radio"
+                          class="input"
+                        />
+                      </label>
+                      <label class="quality-label">
+                        <span>Medium</span>
+                        <input
+                          name="qualitySelector"
+                          value="Medium"
+                          type="radio"
+                          class="input"
+                          checked=""
+                        />
+                      </label>
+                      <label class="quality-label">
+                        <span>High</span>
+                        <input
+                          name="qualitySelector"
+                          value="High"
+                          type="radio"
+                          class="input"
+                        />
+                      </label>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+              <button type="submit" id="compressButton" class="compress-button">Compress</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>
