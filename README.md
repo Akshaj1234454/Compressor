@@ -76,6 +76,3 @@ python manage.py runserver
 - If an image has transparency, it is converted to RGB before saving.
 - Invalid non-image uploads are skipped when multiple files are submitted.
 
-## License
-
-This repository does not include a license file. Add one if you want to publish or share the project more formally.
